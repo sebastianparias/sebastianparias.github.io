@@ -46,7 +46,7 @@
                             <h1 v-if="language">I'm Sebastian Parias</h1>
                             <h1 v-else>Soy Sebastian Parias</h1>
                         </v-col>
-                        
+
                         <v-col cols="12" align="center">
                             <h2 v-if="language" class="mb-10">Front-end developer</h2>
                             <h2 v-else class="mb-10">Desarrollador Front-end</h2>
@@ -76,7 +76,8 @@
 
                             <v-row>
                                 <v-col>
-                                    <a href="https://drive.google.com/file/d/1mNW2G_--vJNFHT5VsLZSvCMKzkiTTeew/view?usp=sharing">
+                                    <a
+                                        href="https://drive.google.com/file/d/1mNW2G_--vJNFHT5VsLZSvCMKzkiTTeew/view?usp=sharing">
                                         <v-btn v-if="language" class="primary">See CV</v-btn>
                                         <v-btn v-else class="primary">Ver CV</v-btn>
                                     </a>
@@ -194,22 +195,23 @@
                         <v-col cols="12" sm="12" md="6">
                             <v-form>
                                 <v-container>
-
-                                    <v-row>
-                                        <v-text-field outlined :label="nameLabel"></v-text-field>
-                                    </v-row>
-                                    <v-row>
-                                        <v-text-field outlined label="Email"></v-text-field>
-                                    </v-row>
-                                    <v-row>
-                                        <v-text-field outlined :label="subjectLabel"></v-text-field>
-                                    </v-row>
-                                    <v-row>
-                                        <v-textarea outlined :label="messageLabel"></v-textarea>
-                                    </v-row>
-                                    <v-row>
-                                        <v-btn block class="primary">{{buttonText}}</v-btn>
-                                    </v-row>
+                                    <form action="https://formspree.io/f/meqdopqj" method="POST">
+                                        <v-row>
+                                            <v-text-field outlined :hint="nameLabel" name="name"></v-text-field>
+                                        </v-row>
+                                        <v-row>
+                                            <v-text-field type="email" outlined hint="Email" name="email"></v-text-field>
+                                        </v-row>
+                                        <v-row>
+                                            <v-text-field outlined :hint="subjectLabel" name="subject"></v-text-field>
+                                        </v-row>
+                                        <v-row>
+                                            <v-textarea outlined :hint="messageLabel" name="message"></v-textarea>
+                                        </v-row>
+                                        <v-row>
+                                            <v-btn type="submit" block class="primary">{{buttonText}}</v-btn>
+                                        </v-row>
+                                        </form>
                                 </v-container>
                             </v-form>
                         </v-col>
