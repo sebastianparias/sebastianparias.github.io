@@ -6,26 +6,17 @@ a {
     width: 100%;
 }
 
-/* #image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-
-} */
-
 .ul {
     list-style-position: inside;
 }
 
 .bg {
-    /* background: url("./img/bg.png") no-repeat center center; */
     background: linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
     url(./img/bg.png);
-    background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
-    height: 90vh;
+    height: 75vh;
+}
 
-
+.gutter {
+    height: 25vh;
 }

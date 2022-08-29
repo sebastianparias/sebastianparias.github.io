@@ -23,37 +23,47 @@
                 <v-spacer></v-spacer>
                 <v-icon @click="changeLanguage()">mdi-google-translate</v-icon>
                 <v-icon @click="changeTheme()" class="ml-2">mdi-theme-light-dark</v-icon>
-                <a href="https://www.linkedin.com/in/sebastian-parias/" target="_blank">
-                    <v-icon>mdi-linkedin</v-icon>
-                </a>
 
+                <template v-slot:extension>
+                    <v-tabs align-with-title>
+                        <v-tab>About</v-tab>
+                        <v-tab>Skills</v-tab>
+                        <v-tab>Education and experience </v-tab>
+                        <v-tab>See my work</v-tab>
+                        <v-tab @click="test()">Contact</v-tab>
+                        <v-tab> <a href="https://www.linkedin.com/in/sebastian-parias/" target="_blank">
+                                <v-icon>mdi-linkedin</v-icon>
+                            </a></v-tab>
+                    </v-tabs>
+                </template>
             </v-app-bar>
-
-
 
             <!-- Sizes your content based upon application components -->
             <v-main>
+                <v-row class="bg">
+                    <v-col cols="12" align="center" class="bounce">
+                        <h2 v-if="language" class="mt-10">Welcome</h2>
+                        <h2 v-else class="mt-10">Bienvenido</h2>
+                    </v-col>
+
+                    <v-col cols="12" align="center" class="bounce">
+                        <h1 v-if="language">I'm Sebastian Parias</h1>
+                        <h1 v-else>Soy Sebastian Parias</h1>
+                    </v-col>
+
+                    <v-col cols="12" align="center" class="bounce">
+                        <h2 v-if="language" class="mb-10">Front-end developer</h2>
+                        <h2 v-else class="mb-10">Desarrollador Front-end</h2>
+                    </v-col>
+                </v-row>
 
                 <!-- Provides the application the proper gutter -->
                 <v-container>
-                    <v-row class="bg">
-                        <v-col cols="12" align="center">
-                            <h2 v-if="language" class="mt-10">Welcome</h2>
-                            <h2 v-else class="mt-10">Bienvenido</h2>
-                        </v-col>
 
-                        <v-col cols="12" align="center">
-                            <h1 v-if="language">I'm Sebastian Parias</h1>
-                            <h1 v-else>Soy Sebastian Parias</h1>
-                        </v-col>
 
-                        <v-col cols="12" align="center">
-                            <h2 v-if="language" class="mb-10">Front-end developer</h2>
-                            <h2 v-else class="mb-10">Desarrollador Front-end</h2>
-                        </v-col>
-                    </v-row>
+                    <div class="gutter"></div>
 
-                    <v-row>
+                    <v-row class="fromX">
                         <v-col align="center">
                             <v-img width="300" tile src="./img/img.jpg"></v-img>
                         </v-col>
@@ -86,104 +96,112 @@
                         </v-col>
                     </v-row>
 
-                    <v-row class="mt-10" justify="center">
-                        <h1 v-if="language">My skills</h1>
-                        <h1 v-else>Mis habilidades</h1>
+                    <div class="gutter"></div>
+
+                    <v-row class="from-X">
+                        <v-row class="mt-10" justify="center">
+                            <h1 v-if="language">My skills</h1>
+                            <h1 v-else>Mis habilidades</h1>
+                        </v-row>
+
+                        <v-row>
+                            <v-spacer></v-spacer>
+                            <v-col cols="4" v-for="skill in skills">
+                                <!-- <div> -->
+                                <p class="text-center">{{skill.name}}</p>
+                                <v-row justify="center">
+                                    <v-icon small color="yellow" v-for="starNumber in skill.stars">
+                                        mdi-star
+                                    </v-icon>
+                                    <v-icon small v-for="starNumber in 5-skill.stars">
+                                        mdi-star
+                                    </v-icon>
+                                </v-row>
+                            </v-col>
+                            <v-spacer></v-spacer>
+                        </v-row>
                     </v-row>
 
-                    <v-row>
-                        <v-spacer></v-spacer>
-                        <v-col cols="4" v-for="skill in skills">
-                            <!-- <div> -->
-                            <p class="text-center">{{skill.name}}</p>
-                            <v-row justify="center">
+                    <div class="gutter"></div>
 
-                                <v-icon small color="yellow" v-for="starNumber in skill.stars">
-                                    mdi-star
-                                </v-icon>
-                                <v-icon small v-for="starNumber in 5-skill.stars">
-                                    mdi-star
-                                </v-icon>
+                    <v-row class="fromX">
+                        <v-row class="mt-10" justify="center">
+                            <h1 v-if="language">Education and experience</h1>
+                            <h1 v-else>Educación y experiencia</h1>
+                        </v-row>
 
+                        <v-row justify="center">
+                            <v-timeline>
+                                <v-timeline-item v-for="item in timeline">
 
-                            </v-row>
+                                    <template v-slot:icon>
+                                        <v-avatar>
+                                            <v-icon>{{item.icon}}</v-icon>
+                                        </v-avatar>
+                                    </template>
 
+                                    <template v-slot:opposite>
+                                        <span>{{item.period}}</span>
+                                    </template>
 
-                            <!-- </div> -->
-
-
-                        </v-col>
-                        <v-spacer></v-spacer>
-                    </v-row>
-
-                    <v-row class="mt-10" justify="center">
-                        <h1 v-if="language">Education and experience</h1>
-                        <h1 v-else>Educación y experiencia</h1>
-                    </v-row>
-
-                    <v-timeline>
-                        <v-timeline-item v-for="item in timeline">
-
-                            <template v-slot:icon>
-                                <v-avatar>
-                                    <v-icon>{{item.icon}}</v-icon>
-                                </v-avatar>
-                            </template>
-
-                            <template v-slot:opposite>
-                                <span>{{item.period}}</span>
-                            </template>
-
-                            <v-card class="elevation-2">
-                                <v-card-title class="text-h5">
-                                    {{item.title}}
-                                </v-card-title>
-                                <v-card-text>
-                                    {{item.text}}
-
-                                </v-card-text>
-                            </v-card>
-
-                        </v-timeline-item>
-                    </v-timeline>
-
-                    <v-row>
-                    </v-row>
-
-                    <v-row class="mt-10" justify="center">
-                        <h1 v-if="language">See my work</h1>
-                        <h1 v-else>Mira mis trabajos</h1>
-                    </v-row>
-
-                    <v-row>
-                        <v-col align="center" v-for="item in apps">
-                            <v-dialog v-model="dialog">
-                                <template v-slot:activator="{ on, attrs }">
-
-                                    <v-card v-bind="on" v-on="on">
-                                        <v-img :src="item.path" width="auto">
-                                        </v-img>
-                                        <v-card-title>
+                                    <v-card class="elevation-2">
+                                        <v-card-title class="text-h5">
                                             {{item.title}}
                                         </v-card-title>
+                                        <v-card-text>
+                                            {{item.text}}
+                                        </v-card-text>
                                     </v-card>
-                                </template>
 
-                                <v-carousel height="auto" cycle="true" interval="3000" show-arrows-on-hover>
-                                    <v-carousel-item reverse-transition="fade-transition" transition="fade-transition"
-                                        v-for="(item,i) in indicatorsApp" :key="i" :src="item">
-                                    </v-carousel-item>
-                                </v-carousel>
-                            </v-dialog>
-
-                        </v-col>
+                                </v-timeline-item>
+                            </v-timeline>
+                        </v-row>
                     </v-row>
 
-                    <v-row class="mt-10" justify="center">
+                    <div class="gutter"></div>
+
+                    <v-row>
+                        <v-row class="mt-10">
+                            <!-- here -->
+                            <h1 v-if="language">See my work</h1>
+                            <h1 v-else>Mira mis trabajos</h1>
+                        </v-row>
+
+                        <v-row>
+                            <v-col v-for="item in apps">
+                                <v-dialog v-model="dialog">
+                                    <template v-slot:activator="{ on, attrs }">
+
+                                        <v-card v-bind="on" v-on="on">
+                                            <v-img :src="item.path" width="auto">
+                                            </v-img>
+                                            <v-card-title>
+                                                {{item.title}}
+                                            </v-card-title>
+                                        </v-card>
+                                    </template>
+
+                                    <v-carousel height="auto" cycle="true" interval="3000" show-arrows-on-hover>
+                                        <v-carousel-item reverse-transition="fade-transition"
+                                            transition="fade-transition" v-for="(item,i) in indicatorsApp" :key="i"
+                                            :src="item">
+                                        </v-carousel-item>
+                                    </v-carousel>
+                                </v-dialog>
+
+                            </v-col>
+                        </v-row>
+
+                    </v-row>
+
+
+
+                    <div class="gutter"></div>
+
+                    <v-row class="mt-10" justify="center" id="test">
                         <h1 v-if="language">Contact</h1>
                         <h1 v-else>Contacto</h1>
                     </v-row>
-
                     <v-row>
                         <v-col cols="12" sm="12" md="6">
                             <iframe
@@ -197,25 +215,40 @@
                                 <v-container>
                                     <form action="https://formspree.io/f/meqdopqj" method="POST">
                                         <v-row>
-                                            <v-text-field outlined :hint="nameLabel" name="name"></v-text-field>
+                                            <label for="name">{{nameLabel}}: </label>
                                         </v-row>
                                         <v-row>
-                                            <v-text-field type="email" outlined hint="Email" name="email"></v-text-field>
+                                            <v-text-field outlined name="name"></v-text-field>
                                         </v-row>
                                         <v-row>
-                                            <v-text-field outlined :hint="subjectLabel" name="subject"></v-text-field>
+                                            <label for="email">Email: </label>
                                         </v-row>
                                         <v-row>
-                                            <v-textarea outlined :hint="messageLabel" name="message"></v-textarea>
+                                            <v-text-field type="email" outlined name="email">
+                                            </v-text-field>
+                                        </v-row>
+                                        <v-row>
+                                            <label for="subject">{{subjectLabel}}: </label>
+                                        </v-row>
+                                        <v-row>
+                                            <v-text-field outlined name="subject"></v-text-field>
+                                        </v-row>
+                                        <v-row>
+                                            <label for="message">{{messageLabel}}: </label>
+                                        </v-row>
+                                        <v-row>
+                                            <v-textarea outlined name="message"></v-textarea>
                                         </v-row>
                                         <v-row>
                                             <v-btn type="submit" block class="primary">{{buttonText}}</v-btn>
                                         </v-row>
-                                        </form>
+                                    </form>
                                 </v-container>
                             </v-form>
                         </v-col>
                     </v-row>
+
+                    <div class="gutter"></div>
 
                 </v-container>
             </v-main>
@@ -229,11 +262,12 @@
 
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollToPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
     <script src="main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.9.1/i18next.min.js"></script>
-
 
 </body>
 

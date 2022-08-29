@@ -5,7 +5,55 @@ new Vue({
     vuetify: new Vuetify(),
     mounted() {
         this.$vuetify.theme.dark = true;
+
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+        
+
+        gsap.from(".bounce", {
+            scrollTrigger: {
+                trigger: ".bounce",
+                // toggleActions: "restart"
+
+            },
+            ease: Bounce.easeOut,
+            scale: 0.5,
+            // x: 400,
+            duration: 1
+        });
+
+        gsap.from(".fromX", {
+            scrollTrigger: {
+                trigger: ".fromX",
+                // toggleActions: "restart"
+
+            },
+            x: 400,
+            duration: 1
+        });        
+        
+        gsap.from(".from-X", {
+            scrollTrigger: {
+                trigger: ".from-X",
+                // toggleActions: "restart"
+
+            },
+            x: -400,
+            duration: 1
+        });        
+        
+        gsap.from(".fromY", {
+            scrollTrigger: {
+                trigger: ".fromY",
+                // toggleActions: "restart"
+            },
+            y: 400,
+            duration: 1
+        });
+
+
+
     },
+
     data: {
         language: 1,
         darkTheme: true,
@@ -43,8 +91,8 @@ new Vue({
             titles: {
                 welcome: 'Welcome'
             },
-                
-            
+
+
             intro: {
                 description: "I'm a Bilingual front-end developer, currently I'm doing an internship at Tecnoparque. I'm passionate about technology and learning!",
                 location: 'From:',
@@ -76,6 +124,12 @@ new Vue({
 
     },
     methods: {
+        test(){
+            // gsap.to(window, {duration: 0.2, scrollTo:"#test"});
+            gsap.to(window, {duration: 2, scrollTo: {y: "#test", offsetY: 100}});
+
+        },
+
         changeTheme() {
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark
         },
@@ -130,28 +184,28 @@ new Vue({
                 return this.spa.intro.age
             }
         },
-        nameLabel(){
+        nameLabel() {
             if (this.language) {
                 return "Name"
             } else {
                 return "Nombre"
             }
         },
-        subjectLabel(){
+        subjectLabel() {
             if (this.language) {
                 return "Subject"
             } else {
                 return "Asunto"
             }
         },
-        messageLabel(){
+        messageLabel() {
             if (this.language) {
                 return "Message"
             } else {
                 return "Mensaje"
             }
         },
-        buttonText(){
+        buttonText() {
             if (this.language) {
                 return "Submit"
             } else {
