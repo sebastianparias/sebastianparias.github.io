@@ -15,7 +15,7 @@
 
         <v-app>
 
-
+            <!-- Nav bar -->
             <v-app-bar app dense>
                 <v-app-bar-title>
                     Portfolio
@@ -24,38 +24,44 @@
                 <v-icon @click="changeLanguage()">mdi-google-translate</v-icon>
                 <v-icon @click="changeTheme()" class="ml-2">mdi-theme-light-dark</v-icon>
 
+
                 <template v-slot:extension>
                     <v-tabs align-with-title>
-                        <v-tab>About</v-tab>
-                        <v-tab>Skills</v-tab>
-                        <v-tab>Education and experience </v-tab>
-                        <v-tab>See my work</v-tab>
-                        <v-tab @click="test()">Contact</v-tab>
+                        <v-tab @click="scrollTo('#introduction')">About</v-tab>
+                        <v-tab @click="scrollTo('#skills')">Skills</v-tab>
+                        <v-tab @click="scrollTo('#education')">Education and experience </v-tab>
+                        <v-tab @click="scrollTo('#portfolio')">See my work</v-tab>
+                        <v-tab @click="scrollTo('#contact')">Contact</v-tab>
                         <v-tab> <a href="https://www.linkedin.com/in/sebastian-parias/" target="_blank">
                                 <v-icon>mdi-linkedin</v-icon>
                             </a></v-tab>
                     </v-tabs>
                 </template>
             </v-app-bar>
+            <!-- /Nav bar -->
+
 
             <!-- Sizes your content based upon application components -->
             <v-main>
+                <!-- welcome -->
                 <v-row class="bg">
                     <v-col cols="12" align="center" class="bounce">
-                        <h2 v-if="language" class="mt-10">Welcome</h2>
-                        <h2 v-else class="mt-10">Bienvenido</h2>
+                        <h2 v-if="language" class="mt-10"><kbd>Welcome</kbd></h2>
+                        <h2 v-else class="mt-10"><kbd>Bienvenido</kbd></h2>
                     </v-col>
 
                     <v-col cols="12" align="center" class="bounce">
-                        <h1 v-if="language">I'm Sebastian Parias</h1>
-                        <h1 v-else>Soy Sebastian Parias</h1>
+                        <h1 v-if="language"><kbd>I'm Sebastian Parias</kbd></h1>
+                        <h1 v-else><kbd>Soy Sebastian Parias</kbd></h1>
                     </v-col>
 
                     <v-col cols="12" align="center" class="bounce">
-                        <h2 v-if="language" class="mb-10">Front-end developer</h2>
-                        <h2 v-else class="mb-10">Desarrollador Front-end</h2>
+                        <h2 v-if="language" class="mb-10"><kbd>Front-end developer</kbd></h2>
+                        <h2 v-else class="mb-10"><kbd>Desarrollador Front-end</kbd></h2>
                     </v-col>
                 </v-row>
+                <!-- /welcome -->
+
 
                 <!-- Provides the application the proper gutter -->
                 <v-container>
@@ -63,23 +69,28 @@
 
                     <div class="gutter"></div>
 
-                    <v-row class="fromX">
+                    <!-- introduction -->
+                    <v-row class="intro" id="introduction">
                         <v-col align="center">
                             <v-img width="300" tile src="./img/img.jpg"></v-img>
                         </v-col>
                         <v-col align="center" align-self="center">
                             <v-row>
                                 <v-col>
-                                    <p>{{intro}}
-                                    </p>
+                                    <h3>{{intro}}
+                                    </h3>
                                 </v-col>
                             </v-row>
 
                             <v-row>
                                 <v-col>
                                     <ul class="ul">
-                                        <li>{{location}} Medellín, Colombia</li>
-                                        <li>{{ageString}} {{age}}</li>
+                                        <li>
+                                            <h3 class="inline">{{location}} Medellín, Colombia</h3>
+                                        </li>
+                                        <li>
+                                            <h3 class="inline">{{ageString}} {{age}}</h3>
+                                        </li>
                                     </ul>
                                 </v-col>
                             </v-row>
@@ -95,10 +106,13 @@
                             </v-row>
                         </v-col>
                     </v-row>
+                    <!-- /introduction -->
+
 
                     <div class="gutter"></div>
 
-                    <v-row class="from-X">
+                    <!-- Skills -->
+                    <v-row class="skills" id="skills">
                         <v-row class="mt-10" justify="center">
                             <h1 v-if="language">My skills</h1>
                             <h1 v-else>Mis habilidades</h1>
@@ -121,10 +135,13 @@
                             <v-spacer></v-spacer>
                         </v-row>
                     </v-row>
+                    <!-- /Skills -->
+
 
                     <div class="gutter"></div>
 
-                    <v-row class="fromX">
+                    <!-- timeline -->
+                    <v-row class="timeline" id="education">
                         <v-row class="mt-10" justify="center">
                             <h1 v-if="language">Education and experience</h1>
                             <h1 v-else>Educación y experiencia</h1>
@@ -157,16 +174,19 @@
                             </v-timeline>
                         </v-row>
                     </v-row>
+                    <!-- /timeline -->
+
 
                     <div class="gutter"></div>
 
-                    <v-row>
-                        <v-row class="mt-10">
-                            <!-- here -->
+                    <!-- portfolio -->
+                    <v-row class="portfolio" id="portfolio">
+                        <v-row class="mt-10" justify="center">
                             <h1 v-if="language">See my work</h1>
                             <h1 v-else>Mira mis trabajos</h1>
                         </v-row>
 
+            
                         <v-row>
                             <v-col v-for="item in apps">
                                 <v-dialog v-model="dialog">
@@ -188,21 +208,19 @@
                                         </v-carousel-item>
                                     </v-carousel>
                                 </v-dialog>
-
                             </v-col>
                         </v-row>
-
                     </v-row>
-
-
+                    <!-- /portfolio -->
 
                     <div class="gutter"></div>
 
-                    <v-row class="mt-10" justify="center" id="test">
+                    <!-- contact -->
+                    <v-row class="mt-10" justify="center" id="contact">
                         <h1 v-if="language">Contact</h1>
                         <h1 v-else>Contacto</h1>
                     </v-row>
-                    <v-row>
+                    <v-row class="contact">
                         <v-col cols="12" sm="12" md="6">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126916.69937767177!2d-75.65125242516612!3d6.2443694716632105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428dfb80fad05%3A0x42137cfcc7b53b56!2sMedell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1661486879996!5m2!1ses!2sco"
@@ -247,17 +265,21 @@
                             </v-form>
                         </v-col>
                     </v-row>
+                    <!-- /contact -->
 
                     <div class="gutter"></div>
 
                 </v-container>
             </v-main>
 
+            <!-- Footer -->
             <v-footer app absolute>
                 <v-row class="pa-4" justify="center">
                     Copyright ©{{currentYear}}
                 </v-row>
             </v-footer>
+            <!-- /Footer -->
+
         </v-app>
 
     </div>

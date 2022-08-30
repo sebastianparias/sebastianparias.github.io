@@ -14,9 +14,19 @@ a {
     background: linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
     url(./img/bg.png);
     background-attachment: fixed;
-    height: 75vh;
+    height: 70vh;
 }
 
 .gutter {
     height: 25vh;
+}
+
+/* varias clases */
+.intro {
+    opacity: 0;
+
+}
+
+.inline {
+    display: inline;
 }

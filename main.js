@@ -12,45 +12,57 @@ new Vue({
         gsap.from(".bounce", {
             scrollTrigger: {
                 trigger: ".bounce",
-                // toggleActions: "restart"
-
             },
             ease: Bounce.easeOut,
             scale: 0.5,
-            // x: 400,
-            duration: 1
+            duration: 1,
         });
 
-        gsap.from(".fromX", {
+        gsap.to(".intro", {
             scrollTrigger: {
-                trigger: ".fromX",
-                // toggleActions: "restart"
-
+                trigger: ".intro",
+                start: "top center",
             },
-            x: 400,
-            duration: 1
+            opacity: 1,
+            duration: 2
         });        
         
-        gsap.from(".from-X", {
+        gsap.from(".skills", {
             scrollTrigger: {
-                trigger: ".from-X",
-                // toggleActions: "restart"
-
+                trigger: ".skills",
+                start: "top bottom",
             },
             x: -400,
-            duration: 1
-        });        
+            duration: 2
+        });     
         
-        gsap.from(".fromY", {
+        gsap.from(".timeline", {
             scrollTrigger: {
-                trigger: ".fromY",
-                // toggleActions: "restart"
+                trigger: ".timeline",
+                start: "top bottom",
             },
-            y: 400,
-            duration: 1
+            x: 400,
+            duration: 2
         });
 
+        gsap.from(".portfolio", {
+            scrollTrigger: {
+                trigger: ".portfolio",
+                start: "top bottom",
+            },
+            x: -400,
+            duration: 2
+        });     
 
+        
+        gsap.from(".contact", {
+            scrollTrigger: {
+                trigger: ".contact",
+                start: "top bottom",
+            },
+            x: 400,
+            duration: 2
+        });   
 
     },
 
@@ -124,10 +136,8 @@ new Vue({
 
     },
     methods: {
-        test(){
-            // gsap.to(window, {duration: 0.2, scrollTo:"#test"});
-            gsap.to(window, {duration: 2, scrollTo: {y: "#test", offsetY: 100}});
-
+        scrollTo(element){
+            gsap.to(window, {duration: 2, scrollTo: {y: element, offsetY: 200}});
         },
 
         changeTheme() {
