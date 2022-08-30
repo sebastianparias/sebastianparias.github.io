@@ -98,9 +98,8 @@
                             <v-row>
                                 <v-col>
                                     <a
-                                        href="https://drive.google.com/file/d/1mNW2G_--vJNFHT5VsLZSvCMKzkiTTeew/view?usp=sharing">
-                                        <v-btn v-if="language" class="primary">See CV</v-btn>
-                                        <v-btn v-else class="primary">Ver CV</v-btn>
+                                        href="https://github.com/sebastianparias" target="_blank">
+                                        <v-btn class="primary">Github</v-btn>
                                     </a>
                                 </v-col>
                             </v-row>
@@ -184,10 +183,11 @@
                         <v-row class="mt-10" justify="center">
                             <h1 v-if="language">See my work</h1>
                             <h1 v-else>Mira mis trabajos</h1>
+
                         </v-row>
 
-            
-                        <v-row>
+
+                        <v-row justify="center">
                             <v-col v-for="item in apps">
                                 <v-dialog v-model="dialog">
                                     <template v-slot:activator="{ on, attrs }">
