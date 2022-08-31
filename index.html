@@ -27,14 +27,16 @@
 
                 <template v-slot:extension>
                     <v-tabs align-with-title>
-                        <v-tab @click="scrollTo('#introduction')">About</v-tab>
-                        <v-tab @click="scrollTo('#skills')">Skills</v-tab>
-                        <v-tab @click="scrollTo('#education')">Education and experience </v-tab>
-                        <v-tab @click="scrollTo('#portfolio')">See my work</v-tab>
-                        <v-tab @click="scrollTo('#contact')">Contact</v-tab>
-                        <v-tab> <a href="https://www.linkedin.com/in/sebastian-parias/" target="_blank">
-                                <v-icon>mdi-linkedin</v-icon>
-                            </a></v-tab>
+                        <v-tab v-for="item in navbar" @click="scrollTo(item.scrollTo)">
+                            {{item.label}}
+                        </v-tab>
+                        <v-tab @click="openLink('https://www.linkedin.com/in/sebastian-parias/')">
+                            <v-icon>mdi-linkedin</v-icon>
+                        </v-tab>
+
+                        <v-tab @click="openLink('https://github.com/sebastianparias')">
+                            <v-icon>mdi-github</v-icon>
+                        </v-tab>
                     </v-tabs>
                 </template>
             </v-app-bar>
@@ -43,6 +45,10 @@
 
             <!-- Sizes your content based upon application components -->
             <v-main>
+
+                <vue-magnifier src="./img/bg.png"></vue-magnifier>
+
+
                 <!-- welcome -->
                 <v-row class="bg">
                     <v-col cols="12" align="center" class="bounce">
@@ -70,7 +76,7 @@
                     <div class="gutter"></div>
 
                     <!-- introduction -->
-                    <v-row class="intro" id="introduction">
+                    <v-row id="introduction">
                         <v-col align="center">
                             <v-img width="300" tile src="./img/img.jpg"></v-img>
                         </v-col>
@@ -94,15 +100,6 @@
                                     </ul>
                                 </v-col>
                             </v-row>
-
-                            <v-row>
-                                <v-col>
-                                    <a
-                                        href="https://github.com/sebastianparias" target="_blank">
-                                        <v-btn class="primary">Github</v-btn>
-                                    </a>
-                                </v-col>
-                            </v-row>
                         </v-col>
                     </v-row>
                     <!-- /introduction -->
@@ -111,7 +108,7 @@
                     <div class="gutter"></div>
 
                     <!-- Skills -->
-                    <v-row class="skills" id="skills">
+                    <v-row id="skills">
                         <v-row class="mt-10" justify="center">
                             <h1 v-if="language">My skills</h1>
                             <h1 v-else>Mis habilidades</h1>
@@ -140,7 +137,7 @@
                     <div class="gutter"></div>
 
                     <!-- timeline -->
-                    <v-row class="timeline" id="education">
+                    <v-row id="timeline">
                         <v-row class="mt-10" justify="center">
                             <h1 v-if="language">Education and experience</h1>
                             <h1 v-else>Educación y experiencia</h1>
@@ -168,7 +165,6 @@
                                             {{item.text}}
                                         </v-card-text>
                                     </v-card>
-
                                 </v-timeline-item>
                             </v-timeline>
                         </v-row>
@@ -179,7 +175,7 @@
                     <div class="gutter"></div>
 
                     <!-- portfolio -->
-                    <v-row class="portfolio" id="portfolio">
+                    <v-row id="portfolio">
                         <v-row class="mt-10" justify="center">
                             <h1 v-if="language">See my work</h1>
                             <h1 v-else>Mira mis trabajos</h1>
@@ -201,7 +197,7 @@
                                         </v-card>
                                     </template>
 
-                                    <v-carousel height="auto" cycle="true" interval="3000" show-arrows-on-hover>
+                                    <v-carousel height="auto" cycle="true" interval="5000" show-arrows-on-hover>
                                         <v-carousel-item reverse-transition="fade-transition"
                                             transition="fade-transition" v-for="(item,i) in indicatorsApp" :key="i"
                                             :src="item">
@@ -216,11 +212,11 @@
                     <div class="gutter"></div>
 
                     <!-- contact -->
-                    <v-row class="mt-10" justify="center" id="contact">
+                    <v-row class="mt-10" justify="center">
                         <h1 v-if="language">Contact</h1>
                         <h1 v-else>Contacto</h1>
                     </v-row>
-                    <v-row class="contact">
+                    <v-row id="contact">
                         <v-col cols="12" sm="12" md="6">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126916.69937767177!2d-75.65125242516612!3d6.2443694716632105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428dfb80fad05%3A0x42137cfcc7b53b56!2sMedell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1661486879996!5m2!1ses!2sco"

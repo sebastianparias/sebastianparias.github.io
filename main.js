@@ -7,7 +7,7 @@ new Vue({
         this.$vuetify.theme.dark = true;
 
         gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-        
+
 
         gsap.from(".bounce", {
             scrollTrigger: {
@@ -18,51 +18,51 @@ new Vue({
             duration: 1,
         });
 
-        gsap.to(".intro", {
+        gsap.to("#introduction", {
             scrollTrigger: {
-                trigger: ".intro",
+                trigger: "#introduction",
                 start: "top center",
             },
             opacity: 1,
             duration: 2
-        });        
-        
-        gsap.from(".skills", {
+        });
+
+        gsap.from("#skills", {
             scrollTrigger: {
-                trigger: ".skills",
+                trigger: "#skills",
                 start: "top bottom",
             },
             x: -400,
             duration: 2
-        });     
-        
-        gsap.from(".timeline", {
+        });
+
+        gsap.from("#timeline", {
             scrollTrigger: {
-                trigger: ".timeline",
+                trigger: "#timeline",
                 start: "top bottom",
             },
             x: 400,
             duration: 2
         });
 
-        gsap.from(".portfolio", {
+        gsap.from("#portfolio", {
             scrollTrigger: {
-                trigger: ".portfolio",
+                trigger: "#portfolio",
                 start: "top bottom",
             },
             x: -400,
             duration: 2
-        });     
+        });
 
-        
-        gsap.from(".contact", {
+
+        gsap.from("#contact", {
             scrollTrigger: {
-                trigger: ".contact",
-                start: "top bottom",
+                trigger: "#contact",
+                start: "top center",
             },
             x: 400,
             duration: 2
-        });   
+        });
 
     },
 
@@ -104,14 +104,20 @@ new Vue({
                 welcome: 'Welcome'
             },
 
-
             intro: {
                 description: "I'm a Bilingual front-end developer, currently I'm doing an internship at Tecnoparque. I'm passionate about technology and learning!",
                 location: 'From:',
                 age: 'Age:'
-            }
+            },
 
+            navbar: [
+                {label: 'about', scrollTo: '#'},
+                {label: 'skills', scrollTo: '#skills'},
+                {label: 'education and experience', scrollTo: '#timeline'},
+                {label: 'see my work', scrollTo: '#portfolio'},
+                {label: 'contact', scrollTo: '#contact'},
 
+            ]
         },
 
         spa: {
@@ -131,13 +137,23 @@ new Vue({
                 description: "Soy un desarrollador front-end bilingüe, actualmente me encuentro realizando prácticas en Tecnoparque. ¡Soy un apasionado por la tecnología y por aprender!",
                 location: 'De:',
                 age: 'Edad:'
-            }
+            },
+            navbar: [
+                {label: 'Sobre mí', scrollTo: '#'},
+                {label: 'Habilidades', scrollTo: '#skills'},
+                {label: 'Educación y experiencia', scrollTo: '#timeline'},
+                {label: 'Mira mi trabajo', scrollTo: '#portfolio'},
+                {label: 'Contacto', scrollTo: '#contact'},
+            ]
         },
 
     },
     methods: {
-        scrollTo(element){
-            gsap.to(window, {duration: 2, scrollTo: {y: element, offsetY: 200}});
+        openLink(url){
+            window.open(url);
+        },
+        scrollTo(element) {
+            gsap.to(window, { duration: 2, scrollTo: { y: element, offsetY: 200 } });
         },
 
         changeTheme() {
@@ -148,7 +164,7 @@ new Vue({
         },
     },
     computed: {
-        age: function () {
+        age() {
             const bornYear = 2000
             const currentYear = new Date().getFullYear()
             return currentYear - bornYear
@@ -222,5 +238,12 @@ new Vue({
                 return "Enviar"
             }
         },
+        navbar() {
+            if (this.language) {
+                return this.eng.navbar
+            } else {
+                return this.spa.navbar
+            }
+        }
     }
 })

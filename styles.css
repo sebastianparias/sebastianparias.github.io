@@ -11,10 +11,11 @@ a {
 }
 
 .bg {
-    background: linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
-    url(./img/bg.png);
-    background-attachment: fixed;
-    height: 70vh;
+    /* background: linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.26)),
+    url(./img/bg.png); */
+    background: url(./img/bg.png);
+    width: 100vw;
+    height: 80vh
 }
 
 .gutter {
@@ -22,7 +23,7 @@ a {
 }
 
 /* varias clases */
-.intro {
+#introduction {
     opacity: 0;
 
 }
