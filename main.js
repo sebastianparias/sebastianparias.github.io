@@ -84,8 +84,8 @@ new Vue({
             { name: 'CSS', stars: 4 },
             { name: 'JavaScript', stars: 4 },
             { name: 'Vue.js', stars: 4 },
-            { name: 'Vuetify', stars: 3 },
-            { name: 'Vuex', stars: 4 },
+            { name: 'Laravel', stars: 3 },
+            { name: 'MySQL', stars: 4 },
             { name: 'Bootstrap', stars: 5 },
             { name: 'Git', stars: 4 },
             { name: 'English', stars: 4 },
@@ -94,7 +94,7 @@ new Vue({
         eng: {
             timeline: [
                 { period: 'April 2020 - December 2021', icon: 'mdi-school-outline', title: 'Education', text: 'I studied a software development degree at Servicio Nacional de Aprendizaje (SENA).' },
-                { period: 'January 2022 - June 2022', icon: 'mdi-coffee-outline', title: 'Career break', text: 'I focused on learning tools like Git, Vue.js, and Vuetify, and I also improved my English as the second language.' },
+                { period: 'January 2022 - June 2022', icon: 'mdi-coffee-outline', title: 'Career break', text: 'I focused on learning tools like Git, Vue.js, and Laravel, and I also improved my English as the second language.' },
                 { period: 'July 2022 - December 2022', icon: 'mdi-account-hard-hat-outline', title: 'Experience', text: "I'm doing an internship at Tecnoparque (Medellín), giving maintenance to SENNOVA apps, an institutional program that helps universities and companies to develop innovative projects." }
             ],
             apps: [
@@ -105,7 +105,7 @@ new Vue({
             },
 
             intro: {
-                description: "I'm a Bilingual front-end developer, currently I'm doing an internship at Tecnoparque. I'm passionate about technology and learning!",
+                description: "I'm a Bilingual web developer, currently I'm doing an internship at Tecnoparque. I'm passionate about technology and learning!",
                 location: 'From:',
                 age: 'Age:'
             },
@@ -123,7 +123,7 @@ new Vue({
         spa: {
             timeline: [
                 { period: 'Abril 2020 - Diciembre 2021', icon: 'mdi-school-outline', title: 'Educación', text: 'Estudié un pregrado en desarrollo de software en el Servicio Nacional De Aprendizaje (SENA).' },
-                { period: 'Enero 2022 - Junio 2022', icon: 'mdi-coffee-outline', title: 'Descanso profesional', text: 'Me enfoqué en aprender herramientas como Git, Vue.js y Vuetify, también mejoré mi inglés como segunda lengua.' },
+                { period: 'Enero 2022 - Junio 2022', icon: 'mdi-coffee-outline', title: 'Descanso profesional', text: 'Me enfoqué en aprender herramientas como Git, Vue.js y Laravel, también mejoré mi inglés como segunda lengua.' },
                 { period: 'Julio 2022 - Diciembre 2022', icon: 'mdi-account-hard-hat-outline', title: 'Experiencia', text: 'Me encuentro realizando prácticas en Tecnoparque (Medellín), estoy a cargo del mantenimiento de las aplicaciones de SENNOVA, un programa institucional que ayuda a otras entidades a desarrollar proyectos innovadores.' },
 
             ],
@@ -134,7 +134,7 @@ new Vue({
                 ''
             ],
             intro: {
-                description: "Soy un desarrollador front-end bilingüe, actualmente me encuentro realizando prácticas en Tecnoparque. ¡Soy un apasionado por la tecnología y por aprender!",
+                description: "Soy un desarrollador web bilingüe, actualmente me encuentro realizando prácticas en Tecnoparque. ¡Soy un apasionado por la tecnología y por aprender!",
                 location: 'De:',
                 age: 'Edad:'
             },
