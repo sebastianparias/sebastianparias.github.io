@@ -86,7 +86,7 @@ new Vue({
             { name: 'Vue.js', stars: 4 },
             { name: 'Laravel', stars: 3 },
             { name: 'MySQL', stars: 4 },
-            { name: 'Bootstrap', stars: 5 },
+            { name: 'PHP', stars: 3 },
             { name: 'Git', stars: 4 },
             { name: 'English', stars: 4 },
         ],
