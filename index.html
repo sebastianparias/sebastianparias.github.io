@@ -45,10 +45,6 @@
 
             <!-- Sizes your content based upon application components -->
             <v-main>
-
-                <vue-magnifier src="./img/bg.png"></vue-magnifier>
-
-
                 <!-- welcome -->
                 <v-row class="bg">
                     <v-col cols="12" align="center" class="bounce">
@@ -184,15 +180,15 @@
 
 
                         <v-row justify="center">
-                            <v-col v-for="item in apps">
+                            <v-col cols="4">
+
                                 <v-dialog v-model="dialog">
                                     <template v-slot:activator="{ on, attrs }">
-
                                         <v-card v-bind="on" v-on="on">
-                                            <v-img :src="item.path" width="auto">
+                                            <v-img :src="goalsApp.path" width="auto">
                                             </v-img>
                                             <v-card-title>
-                                                {{item.title}}
+                                                {{goalsApp.title}}
                                             </v-card-title>
                                         </v-card>
                                     </template>
@@ -205,6 +201,33 @@
                                     </v-carousel>
                                 </v-dialog>
                             </v-col>
+
+                            <v-col cols="4">
+                                <v-card v-bind="on" v-on="on">
+                                    <a>
+                                        <v-img :src="todoApp.path" width="auto"
+                                            @click="openLink('https://laravel-todo.000webhostapp.com/tasks')">
+                                        </v-img>
+                                    </a>
+                                    <v-card-title>
+                                        {{todoApp.title}}
+                                    </v-card-title>
+                                </v-card>
+                            </v-col>
+
+                            <v-col cols="4">
+                                <v-card v-bind="on" v-on="on">
+                                    <a>
+                                        <v-img :src="pokeApp.path" width="auto"
+                                            @click="openLink('https://vue3-poke.netlify.app/')">
+                                        </v-img>
+                                    </a>
+                                    <v-card-title>
+                                        {{pokeApp.title}}
+                                    </v-card-title>
+                                </v-card>
+                            </v-col>
+
                         </v-row>
                     </v-row>
                     <!-- /portfolio -->

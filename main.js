@@ -79,6 +79,11 @@ new Vue({
             './img/6.png',
             './img/7.png'
         ],
+
+        goalsApp: { title: 'Laravel + Vue Indicators/Indicadores app', path: './img/1.png' },
+        todoApp: { title: 'Laravel to-do app', path: './img/todo.png' },
+        pokeApp: {title: 'Vue pokedex app', path: './img/poke.png'},
+
         skills: [
             { name: 'HTML', stars: 5 },
             { name: 'CSS', stars: 4 },
@@ -97,9 +102,8 @@ new Vue({
                 { period: 'January 2022 - June 2022', icon: 'mdi-coffee-outline', title: 'Career break', text: 'I focused on learning tools like Git, Vue.js, and Laravel, and I also improved my English as the second language.' },
                 { period: 'July 2022 - December 2022', icon: 'mdi-account-hard-hat-outline', title: 'Experience', text: "I'm doing an internship at Tecnoparque (Medellín), giving maintenance to SENNOVA apps, an institutional program that helps universities and companies to develop innovative projects. Those apps are developed using Vue and Laravel frameworks." }
             ],
-            apps: [
-                { title: 'Goal indicators app', path: './img/1.png' },
-            ],
+
+
             titles: {
                 welcome: 'Welcome'
             },
@@ -111,11 +115,11 @@ new Vue({
             },
 
             navbar: [
-                {label: 'about', scrollTo: '#'},
-                {label: 'skills', scrollTo: '#skills'},
-                {label: 'education and experience', scrollTo: '#timeline'},
-                {label: 'see my work', scrollTo: '#portfolio'},
-                {label: 'contact', scrollTo: '#contact'},
+                { label: 'about', scrollTo: '#' },
+                { label: 'skills', scrollTo: '#skills' },
+                { label: 'education and experience', scrollTo: '#timeline' },
+                { label: 'see my work', scrollTo: '#portfolio' },
+                { label: 'contact', scrollTo: '#contact' },
 
             ]
         },
@@ -139,17 +143,17 @@ new Vue({
                 age: 'Edad:'
             },
             navbar: [
-                {label: 'Sobre mí', scrollTo: '#'},
-                {label: 'Habilidades', scrollTo: '#skills'},
-                {label: 'Educación y experiencia', scrollTo: '#timeline'},
-                {label: 'Mira mi trabajo', scrollTo: '#portfolio'},
-                {label: 'Contacto', scrollTo: '#contact'},
+                { label: 'Sobre mí', scrollTo: '#' },
+                { label: 'Habilidades', scrollTo: '#skills' },
+                { label: 'Educación y experiencia', scrollTo: '#timeline' },
+                { label: 'Mira mi trabajo', scrollTo: '#portfolio' },
+                { label: 'Contacto', scrollTo: '#contact' },
             ]
         },
 
     },
     methods: {
-        openLink(url){
+        openLink(url) {
             window.open(url);
         },
         scrollTo(element) {
