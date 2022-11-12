@@ -53,8 +53,17 @@
                     </v-col>
 
                     <v-col cols="12" align="center" class="bounce">
-                        <h1 v-if="language"><span class="typing">I'm Sebastian Parias</span></h1>
-                        <h1 v-else><kbd span class="typing">Soy Sebastian Parias</kbd></h1>
+                        <h1 v-if="english">
+                            <kbd class="typing">
+                                I'm Sebastian Parias
+                            </kbd>
+                        </h1>
+
+                        <h1 v-else>
+                            <kbd class="typing">
+                                Soy Sebastian Parias
+                            </kbd>
+                        </h1>
                     </v-col>
 
                     <v-col cols="12" align="center" class="bounce">
@@ -171,63 +180,51 @@
                     <div class="gutter"></div>
 
                     <!-- portfolio -->
-                      
-
-                    <h1 class="text-center pb-5" v-if="language">See my work</h1>
-                    <h1 class="text-center pb-5" v-else >Mira mis trabajos</h1>
-
-                        <v-row id="portfolio">
 
 
-                            <v-col cols="12" sm="4">
+                    <h1 class="text-center pb-5" v-if="english">See my work</h1>
+                    <h1 class="text-center pb-5" v-else>Mira mis trabajos</h1>
 
-                                <v-dialog v-model="dialog">
-                                    <template v-slot:activator="{ on, attrs }">
-                                        <v-card v-bind="on" v-on="on">
-                                            <v-img :src="goalsApp.path" width="auto">
-                                            </v-img>
-                                            <v-card-title>
-                                                {{goalsApp.title}}
-                                            </v-card-title>
-                                        </v-card>
-                                    </template>
+                    <v-row id="portfolio">
 
-                                    <v-carousel height="auto" cycle="true" interval="5000" show-arrows-on-hover>
-                                        <v-carousel-item reverse-transition="fade-transition"
-                                            transition="fade-transition" v-for="(item,i) in indicatorsApp" :key="i"
-                                            :src="item">
-                                        </v-carousel-item>
-                                    </v-carousel>
-                                </v-dialog>
-                            </v-col>
 
-                            <v-col cols="12" sm="4">
-                                <v-card v-bind="on" v-on="on">
-                                    <a>
-                                        <v-img :src="todoApp.path" width="auto"
-                                            @click="openLink('https://laravel-todo.000webhostapp.com/tasks')">
+                        <v-col cols="12" sm="4">
+
+                            <v-dialog v-model="dialog">
+                                <template v-slot:activator="{ on, attrs }">
+                                    <v-card v-bind="on" v-on="on">
+                                        <v-img :src="goalsApp.path" width="auto">
                                         </v-img>
-                                    </a>
-                                    <v-card-title>
-                                        {{todoApp.title}}
-                                    </v-card-title>
-                                </v-card>
-                            </v-col>
+                                        <v-card-title>
+                                            {{goalsApp.title}}
+                                        </v-card-title>
+                                    </v-card>
+                                </template>
 
-                            <v-col cols="12" sm="4">
-                                <v-card v-bind="on" v-on="on">
-                                    <a>
-                                        <v-img :src="pokeApp.path" width="auto"
-                                            @click="openLink('https://vue3-poke.netlify.app/')">
-                                        </v-img>
-                                    </a>
-                                    <v-card-title>
-                                        {{pokeApp.title}}
-                                    </v-card-title>
-                                </v-card>
-                            </v-col>
+                                <v-carousel height="auto" cycle="true" interval="5000" show-arrows-on-hover>
+                                    <v-carousel-item reverse-transition="fade-transition" transition="fade-transition"
+                                        v-for="(item,i) in indicatorsApp" :key="i" :src="item">
+                                    </v-carousel-item>
+                                </v-carousel>
+                            </v-dialog>
+                        </v-col>
 
-                        </v-row>
+                        <v-col cols="12" sm="4" v-for="(app, index) in appsArray" :key="app.id">
+                            <v-card v-bind="on" v-on="on">
+                                <a>
+                                    <v-img :src="app.imgPath" width="auto"
+                                        @click="openLink(app.link)">
+                                    </v-img>
+                                </a>
+                                <v-card-title>
+                                    {{appTitle(index)}}
+                                </v-card-title>
+                            </v-card>
+                        </v-col>
+
+                       
+
+                    </v-row>
                     </v-row>
                     <!-- /portfolio -->
 

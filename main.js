@@ -80,9 +80,16 @@ new Vue({
             './img/7.png'
         ],
 
-        goalsApp: { title: 'Laravel + Vue Indicators/Indicadores app', path: './img/1.png' },
-        todoApp: { title: 'Laravel to-do app', path: './img/todo.png' },
-        pokeApp: {title: 'Vue pokedex app', path: './img/poke.png'},
+        goalsApp: { title: 'Laravel + Vue Indicators - Indicadores app', path: './img/1.png' },
+
+        appsArray: [
+            {id: 1, spaTitle: 'App de tareas en Laravel', engTitle: 'Laravel to-do app', imgPath: './img/todo.png', link: 'https://laravel-todo.000webhostapp.com/tasks' },
+            {id: 2, spaTitle: 'App pokedex con Vue', engTitle: 'Vue pokedex app', imgPath: './img/poke.png', link: 'https://vue3-poke.netlify.app/'},
+            {id: 3, spaTitle: 'Adivina el pokemón', engTitle: 'Guess the pokemon', imgPath: './img/guessthepoke.png', link: 'https://guess-the-poke.netlify.app/'},
+            {id: 4, spaTitle: 'Aplicación de diario', engTitle: 'Journal app', imgPath: './img/journal.png', link: 'https://vuex-journal.netlify.app/'},
+            
+    
+        ],
 
         skills: [
             { name: 'HTML', stars: 5 },
@@ -153,6 +160,14 @@ new Vue({
 
     },
     methods: {
+        appTitle(appIndex){
+            if (this.english) {
+                return this.appsArray[appIndex].engTitle
+            } else {
+                return this.appsArray[appIndex].spaTitle
+            }
+        },
+
         openLink(url) {
             window.open(url);
         },
