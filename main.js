@@ -67,7 +67,7 @@ new Vue({
     },
 
     data: {
-        language: 1,
+        english: 1,
         darkTheme: true,
         dialog: false,
         indicatorsApp: [
@@ -164,7 +164,7 @@ new Vue({
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark
         },
         changeLanguage() {
-            this.language = !this.language
+            this.english = !this.english
         },
     },
     computed: {
@@ -178,21 +178,21 @@ new Vue({
             return currentYear
         },
         timeline() {
-            if (this.language) {
+            if (this.english) {
                 return this.eng.timeline
             } else {
                 return this.spa.timeline
             }
         },
         apps() {
-            if (this.language) {
+            if (this.english) {
                 return this.eng.apps
             } else {
                 return this.spa.apps
             }
         },
         intro() {
-            if (this.language) {
+            if (this.english) {
                 return this.eng.intro.description
             } else {
                 return this.spa.intro.description
@@ -200,7 +200,7 @@ new Vue({
 
         },
         location() {
-            if (this.language) {
+            if (this.english) {
                 return this.eng.intro.location
             } else {
                 return this.spa.intro.location
@@ -208,42 +208,42 @@ new Vue({
 
         },
         ageString() {
-            if (this.language) {
+            if (this.english) {
                 return this.eng.intro.age
             } else {
                 return this.spa.intro.age
             }
         },
         nameLabel() {
-            if (this.language) {
+            if (this.english) {
                 return "Name"
             } else {
                 return "Nombre"
             }
         },
         subjectLabel() {
-            if (this.language) {
+            if (this.english) {
                 return "Subject"
             } else {
                 return "Asunto"
             }
         },
         messageLabel() {
-            if (this.language) {
+            if (this.english) {
                 return "Message"
             } else {
                 return "Mensaje"
             }
         },
         buttonText() {
-            if (this.language) {
+            if (this.english) {
                 return "Submit"
             } else {
                 return "Enviar"
             }
         },
         navbar() {
-            if (this.language) {
+            if (this.english) {
                 return this.eng.navbar
             } else {
                 return this.spa.navbar
