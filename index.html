@@ -22,7 +22,7 @@
                 </v-app-bar-title>
                 <v-spacer></v-spacer>
                 <v-icon @click="changeLanguage()">mdi-google-translate</v-icon>
-                <v-icon @click="changeTheme()" class="ml-2">mdi-theme-light-dark</v-icon>
+                <!-- <v-icon @click="changeTheme()" class="ml-2">mdi-theme-light-dark</v-icon> -->
 
 
                 <template v-slot:extension>
@@ -75,13 +75,13 @@
 
 
                 <!-- Provides the application the proper gutter -->
-                <v-container>
+                <v-container fluid>
 
 
                     <div class="gutter"></div>
 
                     <!-- introduction -->
-                    <v-row id="introduction">
+                    <v-row id="introduction" class="dark-bg">
                         <v-col align="center">
                             <v-img width="300" tile src="./img/img.jpg"></v-img>
                         </v-col>
@@ -113,7 +113,7 @@
                     <div class="gutter"></div>
 
                     <!-- Skills -->
-                    <v-row id="skills">
+                    <v-row id="skills" class="dark-bg">
                         <v-row class="mt-10" justify="center">
                             <h1 v-if="english">My skills</h1>
                             <h1 v-else>Mis habilidades</h1>
@@ -142,7 +142,7 @@
                     <div class="gutter"></div>
 
                     <!-- timeline -->
-                    <v-row id="timeline">
+                    <v-row id="timeline" class="dark-bg">
                         <v-row class="mt-10" justify="center">
                             <h1 v-if="english">Education and experience</h1>
                             <h1 v-else>Educación y experiencia</h1>
@@ -212,8 +212,7 @@
                         <v-col cols="12" sm="4" v-for="(app, index) in appsArray" :key="app.id">
                             <v-card v-bind="on" v-on="on">
                                 <a>
-                                    <v-img :src="app.imgPath" width="auto"
-                                        @click="openLink(app.link)">
+                                    <v-img :src="app.imgPath" width="auto" @click="openLink(app.link)">
                                     </v-img>
                                 </a>
                                 <v-card-title>
@@ -222,7 +221,7 @@
                             </v-card>
                         </v-col>
 
-                       
+
 
                     </v-row>
                     </v-row>
@@ -243,9 +242,9 @@
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </v-col>
 
-                        <v-col cols="12" sm="12" md="6">
+                        <v-col cols="12" sm="12" md="6" class="dark-bg">
                             <v-form>
-                                <v-container>
+                                <v-container fluid>
                                     <form action="https://formspree.io/f/meqdopqj" method="POST">
                                         <v-row>
                                             <label for="name">{{nameLabel}}: </label>
@@ -297,6 +296,11 @@
 
         </v-app>
 
+
+        <canvas id="lienzo">
+
+        </canvas>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
@@ -305,6 +309,48 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
     <script src="main.js"></script>
+
+    <script>
+
+
+        const canvas = document.getElementById("lienzo");
+
+        canvas.width = window.screen.availWidth
+        canvas.height = window.screen.availHeight
+        const context = canvas.getContext('2d')
+
+        // canvas.width = document.body.offsetWidth
+
+        const width = canvas.width
+        const height = canvas.height
+
+        context.fillStyle = '#000'
+        context.fillRect(0, 0, width, height)
+
+        const cols = Math.floor(width / 20) + 1
+        const posicion_y = Array(cols).fill(0)
+
+        function matrix() {
+            context.fillStyle = '#0001'
+            context.fillRect(0, 0, width, height)
+            context.fillStyle = '#0f0'
+            context.font = '15pt monospace'
+
+            posicion_y.forEach((y, index) => {
+                const text = String.fromCharCode(Math.random() * 128)
+                const x = index * 20
+                context.fillText(text, x, y)
+                if (y > 100 + Math.random() * 10000) {
+                    posicion_y[index] = 0
+                } else {
+                    posicion_y[index] = y + 20
+                }
+            })
+        }
+
+        setInterval(matrix, 50)
+
+    </script>
 
 </body>
 
