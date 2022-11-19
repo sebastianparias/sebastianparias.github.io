@@ -21,7 +21,7 @@ new Vue({
         gsap.to("#introduction", {
             scrollTrigger: {
                 trigger: "#introduction",
-                start: "top center",
+                start: "top bottom",
             },
             opacity: 1,
             duration: 2
@@ -30,27 +30,27 @@ new Vue({
         gsap.from("#skills", {
             scrollTrigger: {
                 trigger: "#skills",
-                start: "top bottom",
+                start: "top center",
             },
-            x: -400,
+            opacity: 0,
             duration: 2
         });
 
         gsap.from("#timeline", {
             scrollTrigger: {
                 trigger: "#timeline",
-                start: "top bottom",
+                start: "top center",
             },
-            x: 400,
+            opacity: 0,
             duration: 2
         });
 
         gsap.from("#portfolio", {
             scrollTrigger: {
                 trigger: "#portfolio",
-                start: "top bottom",
+                start: "top center",
             },
-            x: -400,
+            opacity: 0,
             duration: 2
         });
 
@@ -60,7 +60,7 @@ new Vue({
                 trigger: "#contact",
                 start: "top center",
             },
-            x: 400,
+            opacity: 0,
             duration: 2
         });
 
@@ -83,12 +83,12 @@ new Vue({
         goalsApp: { title: 'Laravel + Vue Indicators - Indicadores app', path: './img/1.png' },
 
         appsArray: [
-            {id: 1, spaTitle: 'App de tareas en Laravel', engTitle: 'Laravel to-do app', imgPath: './img/todo.png', link: 'https://laravel-todo.000webhostapp.com/tasks' },
-            {id: 2, spaTitle: 'App pokedex con Vue', engTitle: 'Vue pokedex app', imgPath: './img/poke.png', link: 'https://vue3-poke.netlify.app/'},
-            {id: 3, spaTitle: 'Adivina el pokemón', engTitle: 'Guess the pokemon', imgPath: './img/guessthepoke.png', link: 'https://guess-the-poke.netlify.app/'},
-            {id: 4, spaTitle: 'Aplicación de diario', engTitle: 'Journal app', imgPath: './img/journal.png', link: 'https://vuex-journal.netlify.app/'},
-            
-    
+            { id: 1, spaTitle: 'App de tareas en Laravel', engTitle: 'Laravel to-do app', imgPath: './img/todo.png', link: 'https://laravel-todo.000webhostapp.com/tasks' },
+            { id: 2, spaTitle: 'App pokedex con Vue', engTitle: 'Vue pokedex app', imgPath: './img/poke.png', link: 'https://vue3-poke.netlify.app/' },
+            { id: 3, spaTitle: 'Adivina el pokemón', engTitle: 'Guess the pokemon', imgPath: './img/guessthepoke.png', link: 'https://guess-the-poke.netlify.app/' },
+            { id: 4, spaTitle: 'Aplicación de diario', engTitle: 'Journal app', imgPath: './img/journal.png', link: 'https://vuex-journal.netlify.app/' },
+
+
         ],
 
         skills: [
@@ -160,7 +160,7 @@ new Vue({
 
     },
     methods: {
-        appTitle(appIndex){
+        appTitle(appIndex) {
             if (this.english) {
                 return this.appsArray[appIndex].engTitle
             } else {
