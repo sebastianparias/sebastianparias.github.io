@@ -3,7 +3,13 @@
 new Vue({
     el: '#app',
     vuetify: new Vuetify(),
+    
     mounted() {
+        this.screenWidth = window.innerWidth
+        window.addEventListener("resize", () => {
+            this.screenWidth = window.innerWidth
+        })
+
         this.$vuetify.theme.dark = true;
 
         gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -67,6 +73,7 @@ new Vue({
     },
 
     data: {
+        screenWidth: null,
         english: 1,
         darkTheme: true,
         dialog: false,
@@ -183,6 +190,15 @@ new Vue({
         },
     },
     computed: {
+        rowBackground() {
+            if (this.$vuetify.theme.dark) return "dark-bg"
+        },
+
+        denseTimeline() {
+            if (this.screenWidth < 800) return true
+            return false
+        },
+
         age() {
             const bornYear = 2000
             const currentYear = new Date().getFullYear()
