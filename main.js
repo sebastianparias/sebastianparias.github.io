@@ -91,11 +91,10 @@ new Vue({
 
         appsArray: [
             { id: 1, spaTitle: 'App de tareas en Laravel', engTitle: 'Laravel to-do app', imgPath: './img/todo.png', link: 'https://laravel-todo.000webhostapp.com/tasks' },
-            { id: 2, spaTitle: 'App pokedex con Vue', engTitle: 'Vue pokedex app', imgPath: './img/poke.png', link: 'https://vue3-poke.netlify.app/' },
-            { id: 3, spaTitle: 'Adivina el pokemón', engTitle: 'Guess the pokemon', imgPath: './img/guessthepoke.png', link: 'https://guess-the-poke.netlify.app/' },
-            { id: 4, spaTitle: 'Aplicación de diario', engTitle: 'Journal app', imgPath: './img/journal.png', link: 'https://vuex-journal.netlify.app/' },
-
-
+            { id: 2, spaTitle: 'Pokedex con Vuex', engTitle: 'Vuex pokedex app', imgPath: './img/poke.png', link: 'https://vue3-poke.netlify.app/' },
+            { id: 3, spaTitle: 'Adivina el pokemón - Vue options API', engTitle: 'Guess the pokemon - Vue options API', imgPath: './img/guessthepoke.png', link: 'https://guess-the-poke.netlify.app/' },
+            { id: 4, spaTitle: 'Aplicación de diario - Vuex', engTitle: 'Journal app - Vuex', imgPath: './img/journal.png', link: 'https://vuex-journal.netlify.app/' },
+            { id: 5, spaTitle: 'Trivia app with Vue composition API', engTitle: 'Trivia app con la composition API de Vue 3', imgPath: './img/trivia.png', link: 'https://trivia-app.netlify.app/' },
         ],
 
         skills: [
@@ -105,8 +104,7 @@ new Vue({
             { name: 'Vue.js', stars: 4 },
             { name: 'Laravel', stars: 3 },
             { name: 'MySQL', stars: 3 },
-            { name: 'PHP', stars: 3 },
-            { name: 'Git', stars: 4 },
+            { name: 'Git', stars: 3 },
             { name: 'English', stars: 4 },
         ],
 
